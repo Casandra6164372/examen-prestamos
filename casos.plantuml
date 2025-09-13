@@ -1,0 +1,25 @@
+@startuml prestamosEquipos
+left to right direction
+
+actor "Administrador" as admin
+actor "Estudiante" as est
+actor "Sistema" as sys
+
+rectangle "Plataforma de Préstamo de Equipos Tecnológicos" {
+  usecase "UC1: Registrar Equipos Disponibles" as UC1
+  usecase "UC2: Solicitar Préstamo" as UC2
+  usecase "UC3: Aprobar/Rechazar Solicitud" as UC3
+  usecase "UC4: Generar Recordatorios y Multas" as UC4
+  usecase "UC5: Bloquear Préstamos a Morosos" as UC5
+}
+
+admin --> UC1
+est --> UC2
+admin --> UC3
+sys --> UC4
+sys --> UC5
+
+UC2 --> UC3 : <<include>>
+UC4 ..> UC5 : <<trigger>>
+
+@enduml

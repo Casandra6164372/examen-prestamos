@@ -1,0 +1,84 @@
+@startuml clasesPrestamo
+
+class Usuario {
+  +id: int
+  +nombre: String
+  +email: String
+  +esMoroso(): Boolean
+}
+
+class Estudiante {
+  +matricula: String
+  +solicitarPrestamo()
+}
+Estudiante -|> Usuario
+
+class Administrador {
+  +idAdmin: int
+  +registrarEquipo()
+  +aprobarSolicitud()
+}
+Administrador -|> Usuario
+
+class Equipo {
+  +idEquipo: int
+  +nombre: String
+  +especificaciones: String
+  +estado: String
+}
+
+class PuntoVenta {
+  +idPunto: int
+  +ubicacion: String
+  +consultarStock()
+}
+
+class Inventario {
+  +idInventario: int
+  +cantidad: int
+  +fechaIngreso: Date
+  +actualizarCantidad()
+  +calcularRotacion(): double
+}
+
+class Solicitud {
+  +idSolicitud: int
+  +fechaSolicitud: Date
+  +fechaLimite: Date
+  +justificacion: String
+  +estado: String
+  +crear()
+}
+
+class Prestamo {
+  +idPrestamo: int
+  +fechaInicio: Date
+  +fechaFin: Date
+  +registrarDevolucion()
+}
+
+class Multa {
+  +idMulta: int
+  +monto: double
+  +pagada: Boolean
+}
+
+class Recordatorio {
+  +idRecordatorio: int
+  +fecha: Date
+  +enviar()
+}
+
+' Relaciones y multiplicidades
+Usuario "1" -- "*" Solicitud : realiza
+Solicitud "1" -- "0..1" Prestamo : puede_generar
+Prestamo "1" -- "1" Equipo : sobre
+Equipo "1" -- "*" Inventario : aparece_en
+Inventario "*" -- "1" PuntoVenta : ubicado_en
+Prestamo "0..1" -- "0..1" Multa : puede_generar
+Recordatorio "*" --> "1" Prestamo : recuerda
+
+Administrador --> Inventario : gestiona
+Administrador --> Solicitud : gestiona
+
+@enduml
