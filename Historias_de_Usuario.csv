@@ -1,0 +1,6 @@
+﻿Lista;Título de la Tarjeta;Descripción
+Backlog;HU01 - Registrar equipos disponibles;Como administrador, quiero registrar equipos con su estado y especificaciones técnicas, para mantener actualizado el inventario.
+Backlog;HU02 - Solicitar préstamo en línea;Como estudiante, quiero solicitar préstamos de equipos en línea indicando fecha límite y justificación, para facilitar el acceso.
+Backlog;HU03 - Aprobar o rechazar solicitudes;Como administrador, quiero aprobar o rechazar solicitudes basándome en el inventario y el historial del estudiante, para controlar los préstamos.
+Backlog;HU04 - Recordatorios automáticos de devolución;Como sistema, quiero enviar recordatorios automáticos de devolución y multas por retraso, para evitar pérdidas de equipos.
+Backlog;HU05 - Bloquear préstamos a usuarios morosos;Como sistema, quiero bloquear préstamos a usuarios morosos, para asegurar que cumplan con las devoluciones.
